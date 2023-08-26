@@ -27,84 +27,6 @@ if(isset($_POST['checking_add_image'])){
  
 }
 
-// if(isset($_POST) && !empty($_FILES['image']['name'])){
-     
- 
-//     $prod_name = $_POST['product_name'];
-//     $unit      = $_POST['unit'];
-//     $price     = $_POST['price'];
-//     $expiry    = $_POST['expiry'];
-//     $inventory = $_POST['inventory'];
-//     $cost      = $_POST['cost'];
-
-//     $name = $_FILES['image']['name'];
-//     list($txt, $ext) = explode(".", $name);
-//     $image_name = time().".".$ext;
-//     $tmp = $_FILES['image']['tmp_name'];
- 
-//     if(move_uploaded_file($tmp, '../upload/'.$image_name)){
-//         mysqli_query($conn,"INSERT INTO product (product_name, unit, price, date_expiry, available_inventory, available_inventory_cost, image)
-//         VALUES ('".$prod_name."','".$unit."','".$price."','".$expiry."','".$inventory."','".$cost."','".$image_name."')");
-//         echo "<img width='200px' src='../exam/upload/".$image_name."' class='preview'>";
-//     }else{
-//         echo "image uploading failed";
-//     }
- 
- 
-// }
-
-// if(isset($_POST['checking_image'])){
-//     $name      = $_POST['name'];
-//     $unit      = $_POST['unit'];
-//     $price     = $_POST['price'];
-//     $expiry    = $_POST['expiry'];
-//     $inventory = $_POST['inventory'];
-//     $cost      = $_POST['cost'];
-//     $image     = $_FILES['edit_image']['name'];
-
-//     $query = "INSERT INTO product (product_name, unit, price, date_expiry, available_inventory, available_inventory_cost,image) VALUES ('$name','$unit','$price','$expiry','$inventory','$cost','$image')";
-//     $query_run = mysqli_query($conn, $query);
-
-//     if($query_run)
-//     {
-//         $upload_dir = "upload/";
-//         $upload_path = $upload_dir . basename($_FILES['edit_image']['name']);
-        
-//         if (move_uploaded_file($_FILES['edit_image']['tmp_name'], $upload_path)) {
-//             echo $return = "Successfully Stored";
-//         } else {
-//             echo $return = "Failed to move the uploaded file.";
-//         }
-//     }
-//     else
-//     {
-//         echo $return = "Somthing Went Wrong.!";
-//     }
-// }
-
-// if(isset($_POST['checking_add']))
-// {
-//     $name      = $_POST['product_name'];
-//     $unit      = $_POST['unit'];
-//     $price     = $_POST['price'];
-//     $expiry    = $_POST['expiry'];
-//     $inventory = $_POST['inventory'];
-//     $cost      = $_POST['cost'];
-//     $image     = $_POST['image'];
-
-//     $query = "INSERT INTO product (product_name, unit, price, date_expiry, available_inventory, available_inventory_cost,image) VALUES ('$name','$unit','$price','$expiry','$inventory','$cost','$image')";
-//     $query_run = mysqli_query($conn, $query);
-
-//     if($query_run)
-//     {
-//         echo $return = "Successfully Stored";
-//     }
-//     else
-//     {
-//         echo $return = "Somthing Went Wrong.!";
-//     }
-// }
-
 if(isset($_POST['checking_view']))
 {
     $prod_id = $_POST['prod_id'];
@@ -204,39 +126,6 @@ if (isset($_POST['checking_update'])) {
     }
     
 }
-
-
-// if(isset($_POST['checking_update']))
-// {
-//     $id = $_POST['prod_id'];
-//     $name      = $_POST['name'];
-//     $unit      = $_POST['unit'];
-//     $price     = $_POST['price'];
-//     $expiry    = $_POST['expiry'];
-//     $inventory = $_POST['inventory'];
-//     $cost      = $_POST['cost'];
-//     $image     = $_FILES['edit_image']['name'];
-
-//     $query = "UPDATE product SET product_name='$name', unit='$unit', price='$price', date_expiry='$expiry', available_inventory='$inventory', available_inventory_cost='$cost', image='$image' WHERE id='$id'";
-//     $query_run = mysqli_query($conn, $query);
-
-//     if($query_run)
-//     {
-//         $upload_dir = "upload/";
-
-//         $upload_path = $upload_dir . basename($_FILES['edit_image']['name']);
-        
-//         if (move_uploaded_file($_FILES['edit_image']['tmp_name'], $upload_path)) {
-//             echo $return = "Successfully Stored";
-//         } else {
-//             echo $return = "Failed to move the uploaded file.";
-//         }
-//     }
-//     else
-//     {
-//         echo $return = "Something Went Wrong.!";
-//     }
-// }
 
 
 

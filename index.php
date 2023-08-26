@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Keith Andrew Relles - AJAX CRUD TECHNICAL EXAM</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
   <body>
@@ -13,63 +13,6 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Keith Andrew Relles - AJAX CRUD TECHNICAL EXAM</h4>
-                        
-                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                            ADD
-                        </button> -->
-
-                        <!-- Insert Modal -->
-                        <!-- <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="error-message">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Product Name</label>
-                                        <input type="text" class="form-control name">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Unit</label>
-                                        <input type="number" class="form-control unit">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Price</label>
-                                        <input type="number" class="form-control price">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Date of Expiry</label>
-                                        <input type="text" class="form-control expiry">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Inventory</label>
-                                        <input type="number" class="form-control inventory">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Inventory Cost</label>
-                                        <input type="number" class="form-control cost">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Image</label>
-                                        <input type="text" class="form-control image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary product_add_ajax">Submit</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div> -->
 
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#testProductModal">
                             Add
@@ -218,32 +161,6 @@
                         </div>
                         </div>
 
-                        <!-- Delete Modal -->
-                        <!-- <div class="modal fade" id="prodDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm and Delete Product</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <tr>
-                                        <td><input type="hidden" id="id_delete"></td>
-                                    </tr>
-                                    <div class="col-md-12">
-                                        Are you sure want to delete this data?
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger product_delete_ajax">Yes Delete</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div> -->
-
                         <!-- Delete Confirmation Modal -->
                         <div class="modal fade" id="delete-confirmation-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -301,26 +218,24 @@
         $(document).ready(function () {
             getdata();
 
-            // ADD
-            // Get references to the input fields
-            const input1 = document.getElementById('inv');
-            const input2 = document.getElementById('inv_cost');
-            const input3 = document.getElementById('price');
+            const $input1 = $('#inv');
+            const $input2 = $('#inv_cost');
+            const $input3 = $('#price');
 
-            input1.value = 0;
-            input3.value = 0;
+            $input1.val(0);
+            $input3.val(0);
 
             // Add an input event listener to input1
-            input1.addEventListener('input', function() {
+            $input1.on('input', function() {
                 // Get the values from input1 and input3 and convert them to numbers
-                const valueFromInput1 = parseFloat(input1.value) || 0; // Use parseFloat to handle decimal values
-                const valueFromInput3 = parseFloat(input3.value) || 0;
+                const valueFromInput1 = parseFloat($input1.val()) || 0; // Use parseFloat to handle decimal values
+                const valueFromInput3 = parseFloat($input3.val()) || 0;
 
                 // Calculate the total
                 const total = valueFromInput1 * valueFromInput3;
 
                 // Update the value of input2 with the calculated total
-                input2.value = total.toFixed(2); // Display the total with 2 decimal places
+                $input2.val(total.toFixed(2)); // Display the total with 2 decimal places
             });
 
             // Edit
@@ -438,15 +353,6 @@
 
             $('.product_update_ajax').click(function (e){
                 e.preventDefault();
-
-                // var prod_id   = $('#id_edit').val();
-                // var name      = $('#edit_name').val();
-                // var unit      = $('#edit_unit').val();
-                // var price     = $('#edit_price').val();
-                // var expiry    = $('#edit_expiry').val();
-                // var inventory = $('#edit_inventory').val();
-                // var cost      = $('#edit_cost').val();
-                // var image     = $('#edit_image').val();
 
                 var formData = new FormData($('#editData')[0]);
 

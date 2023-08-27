@@ -86,13 +86,13 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p class="name_view"></p>
-                                <p class="unit_view"></p>
-                                <p class="price_view"></p>
-                                <p class="expiry_view"></p>
-                                <p class="inventory_view"></p>
-                                <p class="cost_view"></p>
-                                <img style="width:200px; height: 200px" class="image_view" src="" alt="Product Image">
+                                <h5>Product Name : </h5><p class="name_view"></p>
+                                <h5>Unit         : </h5><p class="unit_view"></p>
+                                <h5>Price        : </h5><p class="price_view"></p>
+                                <h5>Date Expiry  : </h5><p class="expiry_view"></p>
+                                <h5>Inventory    : </h5><p class="inventory_view"></p>
+                                <h5>Cost         : </h5><p class="cost_view"></p>
+                                <h5>Product image: </h5><img style="width:200px; height: 200px" class="image_view" src="" alt="Product Image">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -403,47 +403,6 @@
                         // Handle errors here
                     }
                 });
-
-                // if(name != '' && unit != '' && price != '' && expiry != '' && inventory != '' && cost != '' && image != '')
-                // {
-                //     $.ajax({
-                //         type: "POST",
-                //         url: "ajax-crud/code.php",
-                //         data: {
-                //             'checking_update':true,
-                //             'prod_id': prod_id,
-                //             'product_name': name,
-                //             'unit': unit,
-                //             'price': price,
-                //             'expiry': expiry,
-                //             'inventory': inventory,
-                //             'cost': cost,
-                //             'image': image,
-                //         },
-                //         success: function (response) {
-                //             $('#prodEditModal').modal('hide');
-                //             $('.message-show').append('\
-                //                 <div class="alert alert-success alert-dismissible fade show" role="alert">\
-                //                     <strong>Hey!</strong> '+response+'.\
-                //                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                //                 </div>\
-                //             ');
-                //             $('.productdata').empty();
-                //             getdata();
-
-                //         }
-                //     });
-                // }
-                // else
-                // {
-                //     $('.error-message-update').append('\
-                //         <div class="alert alert-warning alert-dismissible fade show" role="alert">\
-                //             <strong>Hey!</strong> Please enter all fields.\
-                //             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
-                //         </div>\
-                //     ');
-
-                // }
                 
             });
 
@@ -506,36 +465,6 @@
                     }
                 });
             });
-
-            // $(".editbtn").click(function () {
-            //     var prod_id = $(this).closest('tr').find('.prod_id').text();
-            //     alert(prod_id);
-            //     // $.ajax({
-            //     //     type: "POST",
-            //     //     url: "ajax-crud/code.php",
-            //     //     data: {
-            //     //         'checking_view': true,
-            //     //         'prod_id': prod_id,
-            //     //     },
-            //     //     success: function (response) {
-            //     //         //console.log(response);
-            //     //         $.each(response, function (key, prodview) { 
-            //     //             //console.log(prodview);
-            //     //             $('.name_view').text(prodview['product_name']);
-            //     //             $('.unit_view').text(prodview['unit']);
-            //     //             $('.price_view').text(prodview['price']);
-            //     //             $('.expiry_view').text(prodview['date_expiry']);
-            //     //             $('.inventory_view').text(prodview['available_inventory']);
-            //     //             $('.cost_view').text(prodview['available_inventory_cost']);
-
-            //     //             var imageUrl = 'upload/' + prodview['image'];
-
-            //     //             $('.image_view').attr('src', imageUrl);
-            //     //         });
-            //     //         $('#prodViewModal').modal('show');
-            //     //     }
-            //     // });
-            // });
 
             $('.product_add_ajax').click(function (e){
                 e.preventDefault();
